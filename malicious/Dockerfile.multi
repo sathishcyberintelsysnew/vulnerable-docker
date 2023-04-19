@@ -13,7 +13,7 @@ RUN curl -LO "https://github.com/dominikh/go-tools/releases/download/${SC_VERSIO
 	    && chmod +x /tmp/staticcheck/staticcheck
 
 # Start a new multi-stage build
-FROM ubuntu:latest as new_image
+FROM ubuntu:22.10 as new_image
 
 # Vulnerable package that was downloaded in the previous image is simply copied over to the new image
 COPY --from=builder /tmp /tmp
